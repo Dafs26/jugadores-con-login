@@ -22,8 +22,7 @@ class JugadorFactory extends Factory
     public function definition()
     {
         return [
-            'nombres_apellidos'=>$this->faker->streetName(),
-            'foto_perfil'=>$this->faker->imageUrl('800', '600', 'cats'),
+            'nombres_apellidos'=>$this->faker->streetName(),            
             'fecha_nacimiento'=>$this->faker->date(),
             'nombre_apellido_apoderado'=>$this->faker->sentence(),
             'telefono_apoderado'=>$this->faker->e164PhoneNumber(),

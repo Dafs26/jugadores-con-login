@@ -25,6 +25,7 @@
         <x-jet-banner />
 
         <div class="min-h-screen bg-gray-100">
+            
             @livewire('navigation-menu')
 
             
@@ -44,9 +45,10 @@
                 Swal.fire(
                     'Excelente',
                     message,
-                    'success'
+                    'success',                    
                 )
             })
+            
         </script>
     </body>
 </html>

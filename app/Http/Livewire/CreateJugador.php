@@ -4,10 +4,13 @@ namespace App\Http\Livewire;
 
 use App\Models\jugador;
 use Livewire\Component;
+use Livewire\WithFileUploads;
+
 
 class CreateJugador extends Component
-{
-    public $nombres_apellidos, $foto_perfil, $fecha_nacimiento, $nombre_apellido_apoderado,
+{   
+    use WithFileUploads;
+    public $nombres_apellidos, $fecha_nacimiento, $nombre_apellido_apoderado,
             $telefono_apoderado, $club_actual, $fecha_fin_contrato, $agente, $video1, $video2,
             $video3, $pierna_habil, $altura, $posicion, $telefono, $email, $perfil_transfermarkt,
             $perfil_soccerway;
@@ -24,11 +27,10 @@ class CreateJugador extends Component
 
     public function save(){
 
-        $this->validate();
+        
 
         jugador::create([
-        'nombres_apellidos'=>$this->nombres_apellidos,
-        'foto_perfil'=>$this->foto_perfil,
+        'nombres_apellidos'=>$this->nombres_apellidos,        
         'fecha_nacimiento'=>$this->fecha_nacimiento,
         'nombre_apellido_apoderado'=>$this->nombre_apellido_apoderado,
         'telefono_apoderado'=>$this->telefono_apoderado,
@@ -47,7 +49,7 @@ class CreateJugador extends Component
         'perfil_soccerway'=>$this->perfil_soccerway
         ]);
 
-        $this->reset(['nombres_apellidos', 'foto_perfil', 'fecha_nacimiento', 'nombre_apellido_apoderado',
+        $this->reset(['nombres_apellidos', 'fecha_nacimiento', 'nombre_apellido_apoderado',
                     'telefono_apoderado', 'club_actual', 'fecha_fin_contrato', 'agente', 'video1','video2', 
                     'video3', 'pierna_habil', 'altura', 'posicion', 'telefono', 'email', 'perfil_transfermarkt',
                     'perfil_soccerway']);
@@ -56,6 +58,15 @@ class CreateJugador extends Component
         $this->emit('render');
 
         $this->emit('alert', 'El jugador se registró correctamente');
+    }
+
+    public function resetCancelar(){
+        $this->open = false;
+        $this->reset(['nombres_apellidos', 'fecha_nacimiento', 'nombre_apellido_apoderado',
+                    'telefono_apoderado', 'club_actual', 'fecha_fin_contrato', 'agente', 'video1','video2', 
+                    'video3', 'pierna_habil', 'altura', 'posicion', 'telefono', 'email', 'perfil_transfermarkt',
+                    'perfil_soccerway']);
+        
     }
 
     public function render()

@@ -16,8 +16,8 @@ class CreateJugadorsTable extends Migration
         Schema::create('jugadors', function (Blueprint $table) {
             $table->id();
 
-            $table->string('nombres_apellidos');          
-            $table->string('foto_perfil')->nullable();
+            $table->string('nombres_apellidos');         
+            
             $table->date('fecha_nacimiento');//<18 telefono apoderado 
             $table->string('nombre_apellido_apoderado')->nullable();
             $table->string('telefono_apoderado')->nullable();

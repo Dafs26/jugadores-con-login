@@ -1,12 +1,12 @@
-<div> {{-- Div-padre --}}
-    <x-jet-button wire:click="$set('open', true)">
-        Registrar jugador
-    </x-jet-button>
+<div>
+    <a class="text-green-600 hover:text-green-900 cursor-pointer float-left" wire:click="$set('open', true)">Editar</a>
 
     <x-jet-dialog-modal wire:model="open">
 
         <x-slot name="title">
-            <h2 class="text-green-600 text-2xl">Ingrese sus datos</h2>
+            <h2 class="mb-4 text-green-600 text-2xl float-left">
+                Actualizar datos
+            </h2>
         </x-slot>
 
         <x-slot name="content">
@@ -95,15 +95,17 @@
             <div class="mb-4">
                 <x-jet-input class="w-full" placeholder="Perfil Soccerway (URL)" type="text" wire:model.defer="perfil_soccerway" />
             </div>
+            
         </x-slot>
 
         <x-slot name="footer">
-            <x-jet-secondary-button wire:click="resetCancelar">
+            {{-- <x-jet-secondary-button wire:click="resetCancelar">
                 Cancelar
             </x-jet-secondary-button>
             <x-jet-button class="ml-2" wire:click="save" wire:loading.attr="disabled" wire:target="save" class="disabled:opacity-25">
                 Registrar
-            </x-jet-button>
+            </x-jet-button> --}}
         </x-slot>
+
     </x-jet-dialog-modal>
 </div>
