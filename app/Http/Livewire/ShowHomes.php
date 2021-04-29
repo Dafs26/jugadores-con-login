@@ -3,7 +3,7 @@
 namespace App\Http\Livewire;
 
 use Livewire\Component;
-use App\Models\Jugador; 
+use App\Models\jugador; 
 
 class ShowHomes extends Component
 {
@@ -15,7 +15,7 @@ class ShowHomes extends Component
 
     public function render()
     {
-        $jugadores = Jugador::where('posicion', 'like', '%'. $this->search.'%')
+        $jugadores = jugador::where('posicion', 'like', '%'. $this->search.'%')
                             ->orWhere('pierna_habil', 'like', '%'. $this->search.'%')
                             ->orWhere('fecha_nacimiento', 'like', '%'. $this->search.'%')
                             ->orderBy($this->sort, $this->direction)
