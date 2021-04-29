@@ -1,5 +1,8 @@
 <div>
-    <a class="text-green-600 hover:text-green-900 cursor-pointer float-left" wire:click="$set('open', true)">Editar</a>
+    <a class="text-green-600 hover:text-green-900 cursor-pointer float-left" 
+        wire:click="$set('open', true)">
+        Editar
+    </a>
 
     <x-jet-dialog-modal wire:model="open">
 
@@ -13,8 +16,8 @@
             
             {{-- nombre y apellido --}}
             <div class="mb-4">
-                <x-jet-input class="w-full border border-gray-300 bg-white rounded-md shadow-sm sm:text-sm"
-                    placeholder="Nombres y Apellidos" type="text" wire:model.defer="nombres_apellidos" />
+                <x-jet-input value="{{$jugador->nombres_apellidos}}" class="w-full border border-gray-300 bg-white rounded-md shadow-sm sm:text-sm"
+                    placeholder="Nombres y Apellidos" type="text"  />
                     <x-jet-input-error for="nombres_apellidos" />
             </div>
             {{-- fecha nacimiento - telefono --}}
@@ -25,7 +28,7 @@
                         <x-jet-input-error for="fecha_nacimiento" />
                 </label>
                 <label class="text-green-600">Telefono</label>
-                <x-jet-input class="flex float-right border border-gray-300 bg-white rounded-md shadow-sm  sm:text-sm"
+                <x-jet-input value="{{$jugador->telefono}}" class="flex float-right border border-gray-300 bg-white rounded-md shadow-sm  sm:text-sm"
                     placeholder="Telefono" type="text" wire:model.defer="telefono" />
                     <x-jet-input-error for="telefono" />
             </div>
