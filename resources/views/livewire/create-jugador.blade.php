@@ -26,7 +26,7 @@
                 </label>
                 <label class="text-green-600">Telefono</label>
                 <x-jet-input class="flex float-right border border-gray-300 bg-white rounded-md shadow-sm  sm:text-sm"
-                    placeholder="Telefono" type="text" wire:model.defer="telefono" />
+                    placeholder="Telefono" type="text" wire:model.defer="telefono" maxlength="12"/>
                     <x-jet-input-error for="telefono" />
             </div>
             {{-- nombre apoderado y telefono apoderado --}}
@@ -34,7 +34,7 @@
                 <x-jet-input class=" border border-gray-300 bg-white rounded-md shadow-sm  sm:text-sm"
                     placeholder="Nombre Apoderado (solo si es menor)" type="text" wire:model.defer="nombre_apellido_apoderado" />
                 <x-jet-input class=" border border-gray-300 bg-white rounded-md shadow-sm  sm:text-sm"
-                    placeholder="Telefono Apoderado (solo si es menor)" type="text" wire:model.defer="telefono_apoderado" />
+                    placeholder="Telefono Apoderado (solo si es menor)" type="text" wire:model.defer="telefono_apoderado" maxlength="12" />
             </div>
             {{-- club actual y fecha fin contrato --}}
             <div class="mb-4">

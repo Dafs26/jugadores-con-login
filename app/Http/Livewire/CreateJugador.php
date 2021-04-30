@@ -27,7 +27,7 @@ class CreateJugador extends Component
 
     public function save(){
 
-        
+        $this->validate();
 
         jugador::create([
         'nombres_apellidos'=>$this->nombres_apellidos,        
@@ -49,13 +49,13 @@ class CreateJugador extends Component
         'perfil_soccerway'=>$this->perfil_soccerway
         ]);
 
-        $this->reset(['nombres_apellidos', 'fecha_nacimiento', 'nombre_apellido_apoderado',
+        $this->reset(['open','nombres_apellidos', 'fecha_nacimiento', 'nombre_apellido_apoderado',
                     'telefono_apoderado', 'club_actual', 'fecha_fin_contrato', 'agente', 'video1','video2', 
                     'video3', 'pierna_habil', 'altura', 'posicion', 'telefono', 'email', 'perfil_transfermarkt',
                     'perfil_soccerway']);
-        $this->open = false;            
+                  
 
-        $this->emit('render');
+        $this->emitTo('show-homes','render');
 
         $this->emit('alert', 'El jugador se registró correctamente');
     }
