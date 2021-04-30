@@ -14,7 +14,7 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        
+        $this->call(RoleSeeder::class);
         \App\Models\Jugador::factory(50)->create();
     }
 }

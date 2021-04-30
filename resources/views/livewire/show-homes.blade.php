@@ -79,12 +79,16 @@
                                                 {{$jugador->posicion}}</div>
                                             <div class="text-sm text-gray-500">Telefono: {{$jugador->telefono}}</div>
                                         </td>
-                                        <td class="px-6 py-4  text-right text-sm font-medium">
-                                            {{-- @livewire('edit-jugador', ['jugador' => $jugador], key($jugador->id)) --}}
-                                            <a class="text-green-600 hover:text-green-900 cursor-pointer float-left" 
-                                                wire:click="edit({{$jugador}})">
-                                                Editar
+                                        <td class="px-6 py-4 mr-0">                                            
+                                            <a wire:click="edit({{$jugador}})" class="btn btn-green">
+                                                <i class="far fa-edit"></i>                                                
                                             </a>
+                                        </td>
+                                        <td class="px-6 py-4">
+                                            <a wire:click="destroy({{$jugador}})" class="btn btn-red">
+                                                <i class="far fa-trash"></i>                                                
+                                            </a>
+                                            
                                         </td>
                                     </tr>    
                     @endforeach                                                

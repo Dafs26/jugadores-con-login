@@ -25,7 +25,6 @@
         <x-jet-banner />
 
         <div class="min-h-screen bg-gray-100">
-            
             @livewire('navigation-menu')
 
             
@@ -47,8 +46,28 @@
                     message,
                     'success',                    
                 )
-            })
-            
+            })            
+        </script>
+        <script>
+            Livewire.on('alertDelete', function(message){
+                Swal.fire({
+                title: message,
+                text: "¡Esto es irreversible!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#d33',
+                cancelButtonColor: '#3085d6',
+                confirmButtonText: 'Eliminar'
+                }).then((result) => {
+                if (result.isConfirmed) {
+                    Swal.fire(
+                    '¡Eliminado!',
+                    'Jugador Eliminado.',
+                    'success'
+                    )
+                }
+                })
+            })            
         </script>
     </body>
 </html>

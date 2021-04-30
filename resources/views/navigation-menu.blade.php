@@ -1,7 +1,7 @@
 @php
     $nav_links = [
         [
-            'name'=>'Inicioaaaa',
+            'name'=>'Totalges',
             'route'=>route('home'),
             'active'=>request()->routeIs('home')
         ],
@@ -24,8 +24,8 @@
             <div class="flex">
                 <!-- Logo -->
                 <div class="flex-shrink-0 flex items-center">
-                    <a href="{{ route('dashboard') }}">
-                        <x-jet-application-mark class="block h-9 w-auto" />
+                    <a >
+                        <img class="block h-8 w-auto" src="balon1.jpg" alt="" >
                     </a>
                 </div>
 
@@ -33,9 +33,13 @@
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                     @foreach ($nav_links as $nav_link)
 
-                        <x-jet-responsive-nav-link href="{{ $nav_link['route'] }}" :active="$nav_link['active']">
+                        <x-jet-responsive-nav-link class="mt-3 text-green-600" href="http://totalges.cl/" :active="$nav_link['active']">
                             {{ $nav_link['name'] }}
                         </x-jet-responsive-nav-link>    
+
+                        <x-jet-responsive-nav-link class="mt-3 text-green-600" href="http://totalges.cl/contacto" :active="$nav_link['active']">
+                            Contacto
+                        </x-jet-responsive-nav-link> 
                 
                     @endforeach 
                 </div>
@@ -115,15 +119,9 @@
                                 @endif
                             </x-slot>
 
-                            <x-slot name="content">
-                                <!-- Account Management -->
-                                <div class="block px-4 py-2 text-xs text-gray-400">
-                                    {{ __('Manage Account') }}
-                                </div>
+                            <x-slot name="content">                               
 
-                                <x-jet-dropdown-link href="{{ route('profile.show') }}">
-                                    {{ __('Profile') }}
-                                </x-jet-dropdown-link>
+                                
 
                                 @if (Laravel\Jetstream\Jetstream::hasApiFeatures())
                                     <x-jet-dropdown-link href="{{ route('api-tokens.index') }}">
@@ -140,7 +138,7 @@
                                     <x-jet-dropdown-link href="{{ route('logout') }}"
                                             onclick="event.preventDefault();
                                                     this.closest('form').submit();">
-                                        {{ __('Log Out') }}
+                                        {{ __('Cerrar Sesión') }}
                                     </x-jet-dropdown-link>
                                 </form>
                             </x-slot>
@@ -171,9 +169,13 @@
         <div class="pt-2 pb-3 space-y-1">
             @foreach ($nav_links as $nav_link)
 
-                <x-jet-responsive-nav-link href="{{ $nav_link['route'] }}" :active="$nav_link['active']">
-                    {{ $nav_link['name'] }}
-                </x-jet-responsive-nav-link>    
+            <x-jet-responsive-nav-link class="mt-3 text-green-600" href="http://totalges.cl/" :active="$nav_link['active']">
+                {{ $nav_link['name'] }}
+            </x-jet-responsive-nav-link>    
+
+            <x-jet-responsive-nav-link class="mt-3 text-green-600" href="http://totalges.cl/contacto" :active="$nav_link['active']">
+                Contacto
+            </x-jet-responsive-nav-link>   
                 
             @endforeach    
             
@@ -192,16 +194,14 @@
                     @endif
 
                     <div>
-                        <div class="font-medium text-base text-gray-800">{{ Auth::user()->name }}</div>
-                        <div class="font-medium text-sm text-gray-500">{{ Auth::user()->email }}</div>
+                        <div class="font-medium text-base text-green-800">{{ Auth::user()->name }}</div>
+                        <div class="font-medium text-sm text-green-500">{{ Auth::user()->email }}</div>
                     </div>
                 </div>
 
                 <div class="mt-3 space-y-1">
                     <!-- Account Management -->
-                    <x-jet-responsive-nav-link href="{{ route('profile.show') }}" :active="request()->routeIs('profile.show')">
-                        {{ __('Profile') }}
-                    </x-jet-responsive-nav-link>
+                    
 
                     @if (Laravel\Jetstream\Jetstream::hasApiFeatures())
                         <x-jet-responsive-nav-link href="{{ route('api-tokens.index') }}" :active="request()->routeIs('api-tokens.index')">
@@ -216,7 +216,7 @@
                         <x-jet-responsive-nav-link href="{{ route('logout') }}"
                                     onclick="event.preventDefault();
                                         this.closest('form').submit();">
-                            {{ __('Log Out') }}
+                            {{ __('Cerrar Sesión') }}
                         </x-jet-responsive-nav-link>
                     </form>
 

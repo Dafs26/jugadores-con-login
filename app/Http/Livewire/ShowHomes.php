@@ -14,7 +14,6 @@ class ShowHomes extends Component
     public $search, $jugador;
     public $sort = 'id';
     public $direction = 'desc';
-
     public $open_edit= false;
 
     protected $rules = [
@@ -22,9 +21,12 @@ class ShowHomes extends Component
         'jugador.fecha_nacimiento'=>'required',
         'jugador.pierna_habil'=>'required',
         'jugador.posicion'=>'required',
-        'jugador.telefono'=>'required'
-                
+        'jugador.telefono'=>'required'                
     ];
+
+    public function updatingSearch(){
+        $this->resetPage();
+    }
 
     protected $listeners = ['render'];
 
@@ -70,6 +72,13 @@ class ShowHomes extends Component
         $this->emit('alert', 'El jugador se actualizó correctamente');
     }
 
+    public function destroy($jugador){   
+        $this->emit('alertDelete', '¿Desea eliminar jugador?');     
+        jugador::destroy($jugador);       
+        
+    }
+
+    
     public function resetCancelar(){
         $this->open_edit = false;
         
